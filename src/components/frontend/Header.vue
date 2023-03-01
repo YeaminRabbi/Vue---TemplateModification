@@ -15,17 +15,17 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav justify-content-end">
-							<li class="nav-item active">
+							<li class="nav-item" :class="{ active: $route.name === 'Home' }">
 								<router-link class="nav-link" :to="{name : 'Home'}">Home</router-link>
 							</li>
-							<li class="nav-item active">
+							<li class="nav-item" :class="{ active: $route.name === 'About' }">
 								<router-link class="nav-link" :to="{name : 'About'}">About</router-link>
 							</li>
-							<li class="nav-item active">
+							<li class="nav-item" :class="{ active: $route.name === 'Service' }">
 								<router-link class="nav-link" :to="{name : 'Service'}">Service</router-link>
 							</li>
-							<li class="nav-item active">
-								<router-link class="nav-link" :to="{name : 'Contact'}">Contact</router-link>
+							<li class="nav-item" :class="{ active: $route.name === 'Contact' }">
+								<router-link class="nav-link" :to="{ name: 'Contact' }">Contact</router-link>
 							</li>
 							
 					
@@ -42,7 +42,12 @@
 
 <script>
 export default{
-    name: 'Header'
+    name: 'Header',
+	methods: {
+    isCurrentRoute(path) {
+      return this.$route.path === path
+    }
+  }
 }
 </script>
 
